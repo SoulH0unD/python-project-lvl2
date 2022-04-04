@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-
 import argparse
 from gendiff.gendiff import generate_diff
+
 
 def main():
     """Print diff between two files."""
@@ -16,8 +16,7 @@ def main():
     )
     args = parser.parse_args()
 
-    print(generate_diff(args.first_file, args.second_file))#, args.format))
-
+    print(generate_diff(args.first_file, args.second_file))
 
 
 if __name__ == "__main__":

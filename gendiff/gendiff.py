@@ -1,12 +1,12 @@
 import json
 
 
-def generate_diff(file_path1: str, file_path2: str):#, format_name='stylish') -> str:
+def generate_diff(file_path1: str, file_path2: str):
     source1 = json.load(open(file_path1))
     source2 = json.load(open(file_path2))
     keys = sorted(
                 list(
-                    set(source1.keys()) |  set(source2.keys())
+                    set(source1.keys()) | set(source2.keys())
                     ))
 
     differences = []
@@ -23,16 +23,14 @@ def generate_diff(file_path1: str, file_path2: str):#, format_name='stylish') ->
             else:
                 differences.append(f" - {key}: {bool_to_str(source1[key])}")
                 differences.append(f" + {key}: {bool_to_str(source2[key])}")
-    
     result = '{'
     for value in differences:
-        result = result ='\n'.join([result, value.lower()])
-
-    result ='\n'.join([result, '}'])
+        result = '\n'.join([result, value.lower()])
+    result = '\n'.join([result, '}'])
     return result
 
+
 def bool_to_str(temp) -> str:
-    if type(temp)==bool:
+    if type(temp) == bool:
         return str(temp).lower()
     return temp
-
