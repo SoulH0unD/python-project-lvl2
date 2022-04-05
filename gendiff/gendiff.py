@@ -4,7 +4,7 @@ import json
 def generate_diff(file_path1: str, file_path2: str):
     source1 = json.load(open(file_path1))
     source2 = json.load(open(file_path2))
-    keys = sorted(list(set(source1.keys()) | set(source2.keys())))
+    keys = sorted(list(set(source1.keys()) | set(source2.keys()))) 
 
     differences = []
     for key in keys:
