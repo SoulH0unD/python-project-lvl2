@@ -7,6 +7,3 @@
 
 
 
-
-[![Linter](https://github.com/YuneYune/python-project-lvl2/actions/workflows/linter.yml/badge.svg)](https://github.com/YuneYune/python-project-lvl2/actions/workflows/linter.yml)
-[![Tests](https://github.com/YuneYune/python-project-lvl2/actions/workflows/unit_tests.yml/badge.svg)](https://github.com/YuneYune/python-project-lvl2/actions/workflows/test.yml)
