@@ -1,5 +1,5 @@
-from importlib.resources import open_binary
 import yaml
+from importlib.resources import open_binary
 from gendiff import generate_diff
 from gendiff.parser_files import calculate_differences, open_files
 

@@ -1,5 +1,7 @@
-import json, yaml
+import json
+import yaml
 from pathlib import Path
+
 
 def open_files(path):
     ext = Path(path).suffix
@@ -35,6 +37,7 @@ def calculate_differences(source1, source2) -> str:
         result = '\n'.join([result, value.lower()])
     result = '\n'.join([result, '}'])
     return result
+
 
 def bool_to_str(temp) -> str:
     if type(temp) == bool:
