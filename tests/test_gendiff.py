@@ -24,4 +24,4 @@ def test_calculate_differences():
 
 
 def test_open_files():
-    assert open_files('tests/fixtures/file1.yml') == yaml.load('tests/fixtures/file1.yml', Loader=yaml.BaseLoader)
+    assert open_files('tests/fixtures/file1.yml') == yaml.load(open('tests/fixtures/file1.yml'), Loader=yaml.BaseLoader)
