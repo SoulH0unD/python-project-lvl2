@@ -18,7 +18,7 @@ def open_files(path):
 def calculate_differences(source1, source2):
     keys = list(source1.keys() | source2.keys())
     return {key: gen_tree_diff(key, source1, source2) for key in sorted(keys)}
-    
+
 
 def gen_tree_diff(key, first, second):
     first_value = first.get(key)
@@ -50,4 +50,3 @@ def gen_tree_diff(key, first, second):
             'new_value': second_value,
         }
     return tree
-
