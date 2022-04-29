@@ -7,9 +7,6 @@ OUTPUT_TEMPLATE = {
 
 
 def render(tree, parent=''):
-    if not isinstance(tree, dict):
-        return str(tree)
-
     result_array = []
 
     for item_, values in tree.items():
