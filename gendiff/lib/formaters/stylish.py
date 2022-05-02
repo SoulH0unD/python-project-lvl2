@@ -1,7 +1,7 @@
 from typing import Any
 
 
-INTEND = '  '
+INTEND = '    '
 ADDED = '+ '
 REMOVED = '- '
 
@@ -12,12 +12,10 @@ def render(tree: dict, depth: int = 1) -> str:
     intend_ = INTEND * depth
     if depth == 1:
         intend = intend_
-        added = ADDED
-        removed = REMOVED
     else:
         intend = intend_ + INTEND
-        added = intend_ + ADDED
-        removed = intend_ + REMOVED
+    added = intend_ + ADDED
+    removed = intend_ + REMOVED
     for item, values in tree.items():
         if values['type'] == 'ADDED':
             format.append(f'{added}{item}: '
