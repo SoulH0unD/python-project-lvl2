@@ -1,7 +1,9 @@
+from operator import eq
 from typing import Any
 
 
 INTEND = '    '
+EQUALS = '  '
 ADDED = '+ '
 REMOVED = '- '
 
@@ -12,10 +14,12 @@ def render(tree: dict, depth: int = 1) -> str:
     intend_ = INTEND * depth
     if depth == 1:
         intend = intend_
-        added = ADDED
-        removed = REMOVED
+        equals = '  ' + EQUALS
+        added = '  ' + ADDED
+        removed ='  ' + REMOVED
     else:
-        intend = intend_ + '  '
+        intend = intend_
+        equals = intend_ + EQUALS
         added = intend_ + ADDED
         removed = intend_ + REMOVED
     for item, values in tree.items():
@@ -26,7 +30,7 @@ def render(tree: dict, depth: int = 1) -> str:
             format.append(f'{removed}{item}: '
                           f'{deploy_dict(values["value"], intend)}')
         elif values['type'] == 'EQUALS':
-            format.append(f'{intend}{item}: '
+            format.append(f'{equals}{item}: '
                           f'{deploy_dict(values["value"], intend)}')
         elif values['type'] == 'CHANGED':
             format.append(f'{removed}{item}: '
