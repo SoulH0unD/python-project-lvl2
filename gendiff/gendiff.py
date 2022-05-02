@@ -14,4 +14,3 @@ def generate_diff(file_path1: str, file_path2: str, format_name):
         return json.render(calculate_differences(source1, source2))
     else:
         return f'{format_name} this format is not supported'
-
