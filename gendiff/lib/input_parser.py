@@ -3,7 +3,8 @@ import yaml
 from pathlib import Path
 
 
-def open_files(path):
+def open_files(path: str) -> dict:
+    """Открытие файлов нужного формата"""
     ext = Path(path).suffix
     if ext == '.json':
         content = json.load(open(path))

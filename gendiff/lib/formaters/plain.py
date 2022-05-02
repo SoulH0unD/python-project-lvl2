@@ -1,3 +1,6 @@
+from typing import Any
+
+
 OUTPUT_TEMPLATE = {
     'ADDED': "Property '{0}' was added with value: '{1}'",
     'REMOVED': "Property '{0}' was removed",
@@ -6,7 +9,7 @@ OUTPUT_TEMPLATE = {
 }
 
 
-def render(tree, parent=''):
+def render(tree: dict, parent: str = '') -> str:
     result_array = []
 
     for item_, values in tree.items():
@@ -34,13 +37,13 @@ def render(tree, parent=''):
     return '\n'.join(result)
 
 
-def get_property(parent, item):
+def get_property(parent: str, item: Any) -> str:
     if not parent:
         return item
     return f'{parent}.{item}'
 
 
-def get_value(node):
+def get_value(node: Any) -> str:
     if isinstance(node, dict):
         return OUTPUT_TEMPLATE['COMPLEX']
     return str(node)

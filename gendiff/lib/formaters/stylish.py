@@ -1,9 +1,12 @@
+from typing import Any
+
+
 INTEND = '    '
 ADDED = '  + '
 REMOVED = '  - '
 
 
-def render(tree, depth=1):
+def render(tree: dict, depth: int = 1) -> str:
     format = []
     format.append('{')
     intend_ = INTEND * depth
@@ -37,7 +40,7 @@ def render(tree, depth=1):
     return '\n'.join(format) + '\n}' if depth == 1 else '\n'.join(format)
 
 
-def deploy_dict(element, inten):
+def deploy_dict(element: Any, inten: str) -> str:
     if isinstance(element, dict):
         result = []
         result.append('{')

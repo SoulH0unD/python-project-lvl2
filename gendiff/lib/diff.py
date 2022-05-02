@@ -1,9 +1,14 @@
-def calculate_differences(source1, source2):
+from typing import Any
+
+
+def calculate_differences(source1: dict, source2: dict) -> dict:
+    """Вычислитель отличий"""
     keys = list(source1.keys() | source2.keys())
     return {key: gen_tree_diff(key, source1, source2) for key in sorted(keys)}
 
 
-def gen_tree_diff(key, first, second):
+def gen_tree_diff(key: Any, first: Any, second: Any) -> dict:
+    """Генерация дерева различий"""
     first_value = first.get(key)
     second_value = second.get(key)
     if first_value is None:

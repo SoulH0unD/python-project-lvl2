@@ -7,5 +7,11 @@
 
 Flat File Comparison (JSON)
 [![asciicast](https://asciinema.org/a/VohM6vMH7y2mfwqFnBZV6kegT.svg)](https://asciinema.org/a/VohM6vMH7y2mfwqFnBZV6kegT)
-
-
+Flat File Comparison (YAML)
+[![asciicast](https://asciinema.org/a/6ZpwxAo9v6AinCKCMWGAWaJBE.svg)](https://asciinema.org/a/6ZpwxAo9v6AinCKCMWGAWaJBE)
+Comparison of nested files and format output stylish(JSON and YAML)
+[![asciicast](https://asciinema.org/a/0i2I3ABll1r0pb4eIqdCJPNVJ.svg)](https://asciinema.org/a/0i2I3ABll1r0pb4eIqdCJPNVJ)
+Comparison of nested files and format output plain(JSON and YAML)
+[![asciicast](https://asciinema.org/a/VZZdqCr9Jyd97lAFD507OpSaV.svg)](https://asciinema.org/a/VZZdqCr9Jyd97lAFD507OpSaV)
+Comparison of nested files and format output json(JSON and YAML)
+[![asciicast](https://asciinema.org/a/NjT9genK6dcIVO8WLq8JzHmQB.svg)](https://asciinema.org/a/NjT9genK6dcIVO8WLq8JzHmQB)
