@@ -2,8 +2,8 @@ from typing import Any
 
 
 INTEND = '    '
-ADDED = '  + '
-REMOVED = '  - '
+ADDED = '+ '
+REMOVED = '- '
 
 
 def render(tree: dict, depth: int = 1) -> str:
@@ -15,7 +15,7 @@ def render(tree: dict, depth: int = 1) -> str:
         added = ADDED
         removed = REMOVED
     else:
-        intend = intend_ + INTEND
+        intend = intend_ + '  '
         added = intend_ + ADDED
         removed = intend_ + REMOVED
     for item, values in tree.items():
