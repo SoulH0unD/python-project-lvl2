@@ -3,7 +3,7 @@ from gendiff.lib.diff import calculate_differences
 from gendiff.lib.formaters import my_json, stylish, plain
 
 
-def generate_diff(file_path1: str, file_path2: str, format_name):
+def generate_diff(file_path1: str, file_path2: str, format_name: str = 'stylish') -> str:
     source1 = open_files(file_path1)
     source2 = open_files(file_path2)
     if format_name == 'stylish':
