@@ -1,9 +1,9 @@
 from typing import Any
 
 
-INTEND = '    '
-ADDED = '  + '
-REMOVED = '  - '
+INTEND = '  '
+ADDED = '+ '
+REMOVED = '- '
 
 
 def render(tree: dict, depth: int = 1) -> str:
