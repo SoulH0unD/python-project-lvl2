@@ -1,4 +1,3 @@
-from operator import eq
 from typing import Any
 
 
@@ -16,7 +15,7 @@ def render(tree: dict, depth: int = 1) -> str:
         intend = intend_
         equals = '  ' + EQUALS
         added = '  ' + ADDED
-        removed ='  ' + REMOVED
+        removed = '  ' + REMOVED
     else:
         intend = intend_
         equals = intend_ + EQUALS

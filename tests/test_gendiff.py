@@ -35,6 +35,7 @@ def test_render():
     source1 = open_files('tests/fixtures/stylish/file1.json')
     source2 = open_files('tests/fixtures/stylish/file2.json')
     content = calculate_differences(source1, source2)
+    print(stylish.render(content))
     assert TEST_STAYLISH_RENDER == stylish.render(content)
     assert TEST_PLAIN_RENDER == plain.render(content)
     assert TEST_JSON_RENDER == my_json.render(content)
