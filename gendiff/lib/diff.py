@@ -1,4 +1,4 @@
-from typing import Any, Dict
+from typing import Any
 
 
 def calculate_differences(source1: dict, source2: dict) -> dict:

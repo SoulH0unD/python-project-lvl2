@@ -2,9 +2,9 @@ from typing import Any
 
 
 OUTPUT_TEMPLATE = {
-    'ADDED': "Property '{0}' was added with value: '{1}'",
+    'ADDED': "Property '{0}' was added with value: {1}",
     'REMOVED': "Property '{0}' was removed",
-    'CHANGED': "Property '{0}' was updated. From '{1}' to '{2}'",
+    'CHANGED': "Property '{0}' was updated. From {1} to {2}",
     'COMPLEX': "[complex value]",
 }
 
@@ -43,7 +43,13 @@ def get_property(parent: str, item: Any) -> str:
     return f'{parent}.{item}'
 
 
-def get_value(node: Any) -> str:
-    if isinstance(node, dict):
+def get_value(element: Any) -> str:
+    if isinstance(element, dict):
         return OUTPUT_TEMPLATE['COMPLEX']
-    return str(node)
+    elif element == 'true':
+        return 'true'
+    elif element == 'false':
+        return 'false'
+    elif element == 'null':
+        return 'null'
+    return f"'{element}'"

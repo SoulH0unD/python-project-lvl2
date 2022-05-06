@@ -68,17 +68,17 @@ TEST_STAYLISH_RENDER = """{
         fee: 100500
     }
 }"""
-TEST_PLAIN_RENDER = """Property 'common.follow' was added with value: 'false'
+TEST_PLAIN_RENDER = """Property 'common.follow' was added with value: false
 Property 'common.setting2' was removed
-Property 'common.setting3' was updated. From 'true' to 'null'
+Property 'common.setting3' was updated. From true to null
 Property 'common.setting4' was added with value: 'blah blah'
-Property 'common.setting5' was added with value: '[complex value]'
+Property 'common.setting5' was added with value: [complex value]
 Property 'common.setting6.doge.wow' was updated. From '' to 'so much'
 Property 'common.setting6.ops' was added with value: 'vops'
 Property 'group1.baz' was updated. From 'bas' to 'bars'
-Property 'group1.nest' was updated. From '[complex value]' to 'str'
+Property 'group1.nest' was updated. From [complex value] to 'str'
 Property 'group2' was removed
-Property 'group3' was added with value: '[complex value]'"""
+Property 'group3' was added with value: [complex value]"""
 TEST_JSON_RENDER = ('').join(['{"common": {"type": "NESTED", "value": {"follow": {"type": "ADDED", "value": "false"}, ',
                 '"setting1": {"type": "EQUALS", "value": "Value 1"}, "setting2": {"type": "REMOVED", "value": 200}, "setting3": ',
                 '{"type": "CHANGED", "old_value": "true", "new_value": "null"}, "setting4": {"type": "ADDED", "value": "blah blah"}, ',
