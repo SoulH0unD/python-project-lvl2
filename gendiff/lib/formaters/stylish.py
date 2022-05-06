@@ -1,55 +1,57 @@
 from typing import Any
 
-
-INTEND = '    '
-EQUALS = '  '
-ADDED = '+ '
-REMOVED = '- '
-
-
-def render(tree: dict, depth: int = 1) -> str:
-    format = []
-    format.append('{')
-    intend_ = INTEND * depth
-    if depth == 1:
-        intend = intend_
-        equals = '  ' + EQUALS
-        added = '  ' + ADDED
-        removed = '  ' + REMOVED
-    else:
-        intend = intend_
-        equals = intend_ + EQUALS
-        added = intend_ + ADDED
-        removed = intend_ + REMOVED
-    for item, values in tree.items():
-        if values['type'] == 'ADDED':
-            format.append(f'{added}{item}: '
-                          f'{deploy_dict(values["value"], intend)}')
-        elif values['type'] == 'REMOVED':
-            format.append(f'{removed}{item}: '
-                          f'{deploy_dict(values["value"], intend)}')
-        elif values['type'] == 'EQUALS':
-            format.append(f'{equals}{item}: '
-                          f'{deploy_dict(values["value"], intend)}')
-        elif values['type'] == 'CHANGED':
-            format.append(f'{removed}{item}: '
-                          f'{deploy_dict(values["old_value"], intend)}')
-            format.append(f'{added}{item}: '
-                          f'{deploy_dict(values["new_value"], intend)}')
-        elif values['type'] == 'NESTED':
-            format.append(f'{intend}{item}: '
-                          f'{render(values["value"], depth + 1)}')
-            format.append(f'{intend}}}')
-    return '\n'.join(format) + '\n}' if depth == 1 else '\n'.join(format)
+operator = {
+    'ADDED': "{ws}+ {k}: {v}\n",
+    'REMOVED': "{ws}- {k}: {v}\n",
+    'EQUALS': "{ws}  {k}: {v}\n",
+    'CHANGED': "{ws}- {k}: {v1}\n{ws}+ {k}: {v2}\n",
+    'NESTED': "  {ws}{k}: {op_br}\n{v}{cl_br}\n"
+}
 
 
-def deploy_dict(element: Any, inten: str) -> str:
+def render(diff: dict) -> str:
+    result = do_rendering(diff, indent=2)
+    return "{\n" + result + "}"
+
+
+def do_rendering(tree: dict, indent: int = 1) -> str:
+    rendered_lines = []
+    ws = ''.rjust(indent)
+    for key, value in tree.items():
+        state = value['type']
+        if state == 'NESTED':
+            rend_line = do_rendering(value['value'], indent + 4)
+            rend_line = operator[state].format(
+                ws=ws,
+                k=key,
+                op_br='{',
+                v=rend_line,
+                cl_br='}'.rjust(indent + 3)
+            )
+
+        elif state == 'CHANGED':
+            before = deploy_dict(value['old_value'], indent)
+            after = deploy_dict(value['new_value'], indent)
+            rend_line = operator[state].format(
+                ws=ws,
+                k=key,
+                v1=before,
+                v2=after
+            )
+        else:
+            new_value = deploy_dict(value['value'], indent)
+            rend_line = operator[state].format(ws=ws, k=key, v=new_value)
+        rendered_lines.append(rend_line)
+    return ''.join(rendered_lines)
+
+
+def deploy_dict(element: Any, indent: int) -> str:
     if isinstance(element, dict):
-        result = []
-        result.append('{')
-        for i, v in element.items():
-            result.append(f'{INTEND}{inten}{i}: '
-                          f'{deploy_dict(v, inten + INTEND)}')
-        result.append(f'{inten}}}')
-        return '\n'.join(result)
+        temp = []
+        whitespaces = ''.rjust(indent + 4)
+        for k, v in element.items():
+            val = deploy_dict(v, indent + 4)
+            line = f'{whitespaces}{k}: {val}\n'
+            temp.append(line)
+        return "{\n" + ''.join(temp) + "}".rjust(indent + 3)
     return element

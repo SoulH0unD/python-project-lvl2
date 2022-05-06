@@ -27,45 +27,45 @@ TEST_STAYLISH_YAML = ("").join(["{'common': {'type': 'NESTED', 'value': {'follow
                 "'group2': {'type': 'REMOVED', 'value': {'abc': '12345', 'deep': {'id': '45'}}}, 'group3': {'type': 'ADDED', 'value': {'deep': {'id': {'number': '45'}}, 'fee': '100500'}}}"])
 TEST_STAYLISH_RENDER = """{
     common: {
-        + follow: False
-          setting1: Value 1
-        - setting2: 200
-        - setting3: True
-        + setting4: blah blah
-        + setting5: {
-            key5: value5
+      + follow: False
+        setting1: Value 1
+      - setting2: 200
+      - setting3: True
+      + setting4: blah blah
+      + setting5: {
+          key5: value5
         }
         setting6: {
             doge: {
-                - wow: 
-                + wow: so much
+              - wow: 
+              + wow: so much
             }
-              key: value
-            + ops: vops
+            key: value
+          + ops: vops
         }
     }
     group1: {
-        - baz: bas
-        + baz: bars
-          foo: bar
-        - nest: {
-            key: value
+      - baz: bas
+      + baz: bars
+        foo: bar
+      - nest: {
+          key: value
         }
-        + nest: str
+      + nest: str
     }
   - group2: {
-        abc: 12345
-        deep: {
-            id: 45
+      abc: 12345
+      deep: {
+          id: 45
         }
     }
   + group3: {
-        deep: {
-            id: {
-                number: 45
+      deep: {
+          id: {
+              number: 45
             }
         }
-        fee: 100500
+      fee: 100500
     }
 }"""
 TEST_PLAIN_RENDER = """Property 'common.follow' was added with value: 'False'
