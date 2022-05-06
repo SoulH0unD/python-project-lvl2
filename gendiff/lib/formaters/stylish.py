@@ -28,7 +28,6 @@ def do_rendering(tree: dict, indent: int = 1) -> str:
                 v=rend_line,
                 cl_br='}'.rjust(indent + 3)
             )
-
         elif state == 'CHANGED':
             before = deploy_dict(value['old_value'], indent)
             after = deploy_dict(value['new_value'], indent)
@@ -48,10 +47,10 @@ def do_rendering(tree: dict, indent: int = 1) -> str:
 def deploy_dict(element: Any, indent: int) -> str:
     if isinstance(element, dict):
         temp = []
-        whitespaces = ''.rjust(indent + 4)
+        ws = ''.rjust(indent + 6)
         for k, v in element.items():
             val = deploy_dict(v, indent + 4)
-            line = f'{whitespaces}{k}: {val}\n'
+            line = f'{ws}{k}: {val}\n'
             temp.append(line)
         return "{\n" + ''.join(temp) + "}".rjust(indent + 3)
     return element

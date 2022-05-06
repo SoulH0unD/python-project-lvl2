@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Dict
 
 
 def calculate_differences(source1: dict, source2: dict) -> dict:
@@ -9,8 +9,8 @@ def calculate_differences(source1: dict, source2: dict) -> dict:
 
 def gen_tree_diff(key: Any, first: Any, second: Any) -> dict:
     """Генерация дерева различий"""
-    first_value = first.get(key)
-    second_value = second.get(key)
+    first_value = check_value(key, first)
+    second_value = check_value(key, second)
     if first_value is None:
         tree = {
             'type': 'ADDED',
@@ -38,3 +38,17 @@ def gen_tree_diff(key: Any, first: Any, second: Any) -> dict:
             'new_value': second_value,
         }
     return tree
+
+
+def check_value(k, v):
+    if k in v:
+        if v[k] is None:
+            return 'null'
+        elif v[k] == True:
+            return 'true'
+        elif v[k] == False:
+            return 'false'
+        else:
+            return v[k]
+    else:
+        return None
