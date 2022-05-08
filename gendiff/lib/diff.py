@@ -44,10 +44,11 @@ def check_value(k, v):
     if k in v:
         if v[k] is None:
             return 'null'
-        elif v[k] == True:
-            return 'true'
-        elif v[k] == False and v[k] != 0:
-            return 'false'
+        elif isinstance(v[k], bool):
+            if v[k]:
+                return 'true'
+            else:
+                return 'false'
         else:
             return v[k]
     else:
