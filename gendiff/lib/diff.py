@@ -1,3 +1,4 @@
+import numbers
 from typing import Any
 
 
@@ -44,8 +45,8 @@ def check_value(k, v):
     if k in v:
         if v[k] is None:
             return 'null'
-        elif v[k] == 0:
-            return 0
+        elif isinstance(v[k], (int, float)):
+            return v[k]
         elif v[k] == True:
             return 'true'
         elif v[k] == False:
