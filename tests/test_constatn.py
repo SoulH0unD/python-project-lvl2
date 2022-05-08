@@ -4,7 +4,7 @@ TEST_PLAIN_JSON = ("").join(["{'follow': {'type': 'REMOVED', 'value': 'false'}, 
                 "'old_value': 50, 'new_value': 20}, 'verbose': {'type': 'ADDED', 'value': 'true'}}"])
 TEST_PLAIN_YAML = ("").join(["{'follow': {'type': 'REMOVED', 'value': 'false'}, ",
                 "'host': {'type': 'EQUALS', 'value': 'hexlet.io'}, 'proxy': {'type': ",
-                "'REMOVED', 'value': '123.234.53.22'}, 'timeout': {'type': 'CHANGED', ", 
+                "'REMOVED', 'value': '123.234.53.22'}, 'timeout': {'type': 'CHANGED', ",
                 "'old_value': '50', 'new_value': '20'}, 'verbose': {'type': 'ADDED', 'value': 'true'}}"])
 TEST_STAYLISH_JSON = ("").join(["{'common': {'type': 'NESTED', 'value': {'follow': {'type': 'ADDED', 'value': 'false'}, ",
                 "'setting1': {'type': 'EQUALS', 'value': 'Value 1'}, 'setting2': {'type': 'REMOVED', 'value': 200}, 'setting3': ",
