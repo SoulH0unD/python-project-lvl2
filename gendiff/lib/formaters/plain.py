@@ -52,6 +52,8 @@ def get_value(element: Any) -> str:
         return 'false'
     elif element == 'null':
         return 'null'
+    elif isinstance(element, int):
+        return element
     elif isinstance(element, str):
         return f"'{element}'"
     return element
