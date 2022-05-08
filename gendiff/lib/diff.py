@@ -46,10 +46,10 @@ def check_value(k, v):
             return 'null'
         #elif isinstance(v[k], (int, float)):
         #    return v[k]
-        #elif v[k] == True:
-        #    return 'true'
-        #elif v[k] == False:
-        #    return 'false'
+        elif v[k] == True:
+            return 'true'
+        elif v[k] == False:
+            return 'false'
         else:
             return v[k]
     else:
