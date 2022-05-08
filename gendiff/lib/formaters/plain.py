@@ -46,12 +46,12 @@ def get_property(parent: str, item: Any) -> str:
 def get_value(element: Any) -> str:
     if isinstance(element, dict):
         return OUTPUT_TEMPLATE['COMPLEX']
-    elif isinstance(element, str):
-        return f"'{element}'"
     elif element == 'true':
         return 'true'
     elif element == 'false':
         return 'false'
     elif element == 'null':
         return 'null'
+    elif isinstance(element, str):
+        return f"'{element}'"
     return str(element)
