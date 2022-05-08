@@ -1,3 +1,4 @@
+# flake8: noqa
 import yaml
 import json
 from gendiff.lib.formaters import plain, stylish, my_json

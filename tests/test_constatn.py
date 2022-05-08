@@ -1,3 +1,4 @@
+# flake8: noqa
 TEST_PLAIN_JSON = ("").join(["{'follow': {'type': 'REMOVED', 'value': 'false'}, ",
                 "'host': {'type': 'EQUALS', 'value': 'hexlet.io'}, 'proxy': {'type': ",
                 "'REMOVED', 'value': '123.234.53.22'}, 'timeout': {'type': 'CHANGED', ",
