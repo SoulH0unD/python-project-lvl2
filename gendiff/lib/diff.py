@@ -44,11 +44,9 @@ def check_value(k, v):
     if k in v:
         if v[k] is None:
             return 'null'
-        elif isinstance(v[k], (int, float)):
-            return v[k]
         elif v[k] == True:
             return 'true'
-        elif v[k] == False:
+        elif v[k] == False and v[k] != 0:
             return 'false'
         else:
             return v[k]
