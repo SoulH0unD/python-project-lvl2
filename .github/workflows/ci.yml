@@ -10,8 +10,14 @@ jobs:
     steps:
     - name: checkout code
       uses: actions/checkout@v3
-
-    - name: publish code coverage to code-climate (duh)
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+   - name: Install dependencies
+      run: |
+        pip install poetry coverage
+   - name: publish code coverage to code-climate (duh)
       uses: paambaati/codeclimate-action@v3.0.0
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
