@@ -11,6 +11,8 @@ classifiers = [
     "Programming Language :: Python"
 ]
 
+[tool.poetry.urls]
+"GitHub" = "https://github.com/SoulH0unD/python-project-lvl2/"
 
 [tool.poetry.dependencies]
 python = "^3.8"

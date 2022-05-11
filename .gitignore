@@ -4,4 +4,5 @@
 __pycache__
 .python-version
 .coverage
+coverage.xml
 dist
