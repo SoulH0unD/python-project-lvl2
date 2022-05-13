@@ -4,7 +4,7 @@ on:
   - pull_request
 
 jobs:
-  coverage:
+  steps:
     name: coverage
     runs-on: ubuntu-latest
     - uses: actions/checkout@v2
