@@ -1,0 +1,1 @@
+{'follow': {'type': 'REMOVED', 'value': 'false'}, 'host': {'type': 'EQUALS', 'value': 'hexlet.io'}, 'proxy': {'type': 'REMOVED', 'value': '123.234.53.22'}, 'timeout': {'type': 'CHANGED', 'old_value': 50, 'new_value': 20}, 'verbose': {'type': 'ADDED', 'value': 'true'}}

@@ -13,6 +13,10 @@ Command line tool for generating difference between two configuration files.
 * Report generation as plain text, structured text or JSON
 * Can be used as CLI tool or external library
 
+## How to Install and run package.
+```
+pip install git+https://github.com/SoulH0unD/python-project-lvl2
+```
 ## Usage
 ```
 > gendiff --help
