@@ -27,7 +27,7 @@ jobs:
         run: |
           pip install poetry flake8 pytest 
           make install          
-       - name: Run unit tests
+      - name: Run unit tests
         run: poetry run pytest --cov=gendiff --cov-report xml tests/
       - name: Publish Code Coverage to CodeClimate
         uses: paambaati/codeclimate-action@v3.0.0
