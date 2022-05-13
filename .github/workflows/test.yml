@@ -32,9 +32,10 @@ jobs:
           make install          
   
       - name: Run unit tests
-        run: poetry run pytest -vv --cov 
-      
-      - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v3.0.0
+        run: poetry run pytest -vv 
+      - name: Publish Code Coverage to CodeClimate
+        uses: paambaati/codeclimate-action@v2.7.4
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: poetry run coverage xml
