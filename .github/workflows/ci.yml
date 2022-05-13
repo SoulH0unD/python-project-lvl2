@@ -9,12 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - run: npm install -g yarn
-    - run: yarn install
-    - run: yarn build
+    - name: Install python
+      uses: actions/setup-python@v2
+    - name: Install dependencies
+      run: |
+        pip install poetry
+        pip install coverage
     - uses: paambaati/codeclimate-action@v3.0.0
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
       with:
-        coverageCommand: yarn run coverage
-        debug: true
+        coverageCommand: poetry run coverage xml
+        
