@@ -27,7 +27,7 @@ jobs:
         run: |
           pip install poetry
           python -m pip install --upgrade pip
-          pip install flake8 pytest
+          pip install flake8 pytest coverage
           poetry update
           make install          
   
