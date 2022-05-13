@@ -25,17 +25,12 @@ jobs:
         
       - name: Install dependencies
         run: |
-          pip install poetry
-          python -m pip install --upgrade pip
-          pip install flake8 pytest coverage
-          poetry update
+          pip install poetry flake8 pytest 
           make install          
-  
-      - name: Run unit tests
-        run: poetry run pytest -vv 
+       - name: Run unit tests
+        run: poetry run pytest --cov=gendiff --cov-report xml tests/
       - name: Publish Code Coverage to CodeClimate
         uses: paambaati/codeclimate-action@v3.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        with:
-          coverageCommand: make coverage
+
